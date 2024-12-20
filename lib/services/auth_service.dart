@@ -27,12 +27,10 @@ class AuthService {
       );
       
       // Store additional user data in Firestore
-      await _firestore.collection('students').doc(userCredential.user!.uid).set({
+      await _firestore.collection('customers').doc(userCredential.user!.uid).set({
         'name': name,
         'email': email,
         'createdAt': FieldValue.serverTimestamp(),
-        'enrolledSubjects': [], // Initialize empty enrolled subjects array
-        'totalCredits': 0,
       });
       
       return userCredential;
